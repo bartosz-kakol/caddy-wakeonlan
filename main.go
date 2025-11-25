@@ -1,4 +1,4 @@
-package main
+package caddy_wakeonlan
 
 import (
 	"errors"
@@ -11,7 +11,6 @@ import (
 	"github.com/caddyserver/caddy/v2"
 	"github.com/caddyserver/caddy/v2/caddyconfig/caddyfile"
 	"github.com/caddyserver/caddy/v2/caddyconfig/httpcaddyfile"
-	caddycmd "github.com/caddyserver/caddy/v2/cmd"
 	"github.com/caddyserver/caddy/v2/modules/caddyhttp"
 )
 
@@ -170,9 +169,4 @@ func sendWOL(macStr, ip string, port int) error {
 
 	_, err = conn.Write(packet)
 	return err
-}
-
-func main() {
-	// Run Caddy with this module included.
-	caddycmd.Main()
 }
